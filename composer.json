@@ -3,5 +3,4 @@
 	"type": "typo3-cms-extension",
 	"description": "Data structure for News",
 	"license": ["GPL-2.0+"],
-	"version": "3.6.0"
 }
