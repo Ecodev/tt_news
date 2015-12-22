@@ -4,18 +4,12 @@
  */
 
 	// get extension confArr
-$confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['tt_news']);
-	// switch the use of the "StoragePid"(general record Storage Page) for tt_news categories
-$fTableWhere = ($confArr['useStoragePid'] ? 'AND tt_news_cat.pid=###STORAGE_PID### ' : '');
-	// page where records will be stored in that have been created with a wizard
-$sPid = ($fTableWhere ? '###STORAGE_PID###' : '###CURRENT_PID###');
-	// l10n_mode for text fields
-$l10n_mode = ($confArr['l10n_mode_prefixLangTitle'] ? 'prefixLangTitle' : '');
-$l10n_mode_author = ($confArr['l10n_mode_prefixLangTitle'] ? 'mergeIfNotBlank' : '');
+$l10n_mode = 'prefixLangTitle';
+$l10n_mode_author = 'mergeIfNotBlank';
 	// l10n_mode for the image field
-$l10n_mode_image = ($confArr['l10n_mode_imageExclude'] ? 'exclude' : 'mergeIfNotBlank');
+$l10n_mode_image = 'exclude';
 	// hide new localizations
-$hideNewLocalizations = ($confArr['hideNewLocalizations'] ? 'mergeIfNotBlank' : '');
+$hideNewLocalizations = '';
 // ******************************************************************
 // This is the standard TypoScript news table, tt_news
 // ******************************************************************
@@ -128,14 +122,6 @@ $TCA['tt_news'] = Array (
 						'script' => 'wizard_rte.php',
 					),
 				)
-			)
-		),
-		'no_auto_pb' => Array (
-			'l10n_mode' => 'mergeIfNotBlank',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news.no_auto_pb',
-			'config' => Array (
-				'type' => 'check'
 			)
 		),
 		'short' => Array (
@@ -295,23 +281,6 @@ $TCA['tt_news'] = Array (
 				'rows' => '3'
 			)
 		),
-		'category' => Array (
-			'exclude' => 1,
-		#	'l10n_mode' => 'exclude', // the localizalion mode will be handled by the userfunction
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news.category',
-			'config' => Array (
-				'type' => 'select',
-				'form_type' => 'user',
-				'userFunc' => 'tx_ttnews_TCAform_selectTree->renderCategoryFields',
-				'treeView' => 1,
-				'foreign_table' => 'tt_news_cat',
-				'autoSizeMax' => 50,
-				'minitems' => $confArr['requireCategories'] ? 1 : 0,
-				'maxitems' => 500,
-				'MM' => 'tt_news_cat_mm',
-
-			)
-		),
 		'page' => Array (
 			'exclude' => 1,
 			'l10n_mode' => 'exclude',
@@ -452,7 +421,6 @@ $TCA['tt_news'] = Array (
 	'palettes' => Array (
 		'1' => Array('showitem' => 't3ver_label,l18n_parent'),
 //		'10' => Array('showitem' => 'fe_group'),
-		'2' => Array('showitem' => 'no_auto_pb'),
 		'3' => Array('showitem' => 'author_email'),
 //		'4' => Array('showitem' => 'keywords'),
 		'5' => Array('showitem' => 'imagealttext,imagetitletext'),
@@ -460,216 +428,3 @@ $TCA['tt_news'] = Array (
 
 	)
 );
-
-
-
-// ******************************************************************
-// This is the standard TypoScript news category table, tt_news_cat
-// ******************************************************************
-$TCA['tt_news_cat'] = Array (
-	'ctrl' => $TCA['tt_news_cat']['ctrl'],
-	'interface' => Array (
-		'showRecordFieldList' => 'title,image,shortcut,shortcut_target'
-	),
-	'columns' => Array (
-		'title' => Array (
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.title',
-			'config' => Array (
-				'type' => 'input',
-				'size' => '40',
-				'max' => '256',
-				'eval' => 'required'
-			)
-		),
-		'title_lang_ol' => Array (
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.title_lang_ol',
-			'config' => Array (
-				'type' => 'input',
-				'size' => '40',
-				'max' => '256',
-
-			)
-		),
-		'hidden' => Array (
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
-			'config' => Array (
-				'type' => 'check',
-			)
-		),
-		'fe_group' => Array (
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.fe_group',
-			'config' => Array (
-				'type' => 'select',
-				'size' => 5,
-				'maxitems' => 20,
-				'items' => Array (
-					Array('LLL:EXT:lang/locallang_general.php:LGL.hide_at_login', -1),
-					Array('LLL:EXT:lang/locallang_general.php:LGL.any_login', -2),
-					Array('LLL:EXT:lang/locallang_general.php:LGL.usergroups', '--div--')
-				),
-				'exclusiveKeys' => '-1,-2',
-				'foreign_table' => 'fe_groups'
-			)
-		),
-		'starttime' => Array (
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.starttime',
-			'config' => Array (
-				'type' => 'input',
-				'size' => '10',
-				'max' => '20',
-				'eval' => 'datetime',
-				'checkbox' => '0',
-				'default' => '0'
-			)
-		),
-		'endtime' => Array (
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.endtime',
-			'config' => Array (
-				'type' => 'input',
-				'size' => '8',
-				'max' => '20',
-				'eval' => 'datetime',
-				'checkbox' => '0',
-				'default' => '0',
-				'range' => Array (
-					'upper' => mktime(0,0,0,12,31,2020),
-					'lower' => mktime(0,0,0,date('m')-1,date('d'),date('Y'))
-				)
-			)
-		),
-		'parent_category' => Array (
-			'exclude' => 1,
-
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.parent_category',
-			'config' => Array (
-				'type' => 'select',
-				'type' => 'select',
-				'form_type' => 'user',
-				'userFunc' => 'tx_ttnews_TCAform_selectTree->renderCategoryFields',
-				'treeView' => 1,
-				'size' => 1,
-				'minitems' => 0,
-/**
- * FIXME actually maxitems is '1' but somehow the '2' is needed here
- * @see lib/class.tx_ttnews_TCAform_selectTree.php
- *
- */
-
-				'maxitems' => 2,
-				'foreign_table' => 'tt_news_cat',
-//				'wizards' => Array(
-//					'_PADDING' => 2,
-//					'_VERTICAL' => 1,
-////					'add' => Array(
-////						'type' => 'script',
-////						'title' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.createNewParentCategory',
-////						'icon' => 'EXT:tt_news/res/add_cat.gif',
-////						'params' => Array(
-////							'table'=>'tt_news_cat',
-////							'pid' => $sPid,
-////							'setValue' => 'set'
-////						),
-////						'script' => 'wizard_add.php',
-////					),
-//					'list' => Array(
-//						'type' => 'script',
-//						'title' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.listCategories',
-//						'icon' => 'list.gif',
-//						'params' => Array(
-//							'table'=>'tt_news_cat',
-//							'pid' => $sPid,
-//						),
-//						'script' => 'wizard_list.php',
-//					),
-//				),
-
-			)
-		),
-		'image' => Array (
-			'exclude' => 1,
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.image',
-			'config' => Array (
-				'type' => 'group',
-				'internal_type' => 'file',
-				'allowed' => 'gif,png,jpeg,jpg',
-				'max_size' => 100,
-				'uploadfolder' => 'uploads/pics',
-				'show_thumbs' => 1,
-				'size' => 1,
-				'minitems' => 0,
-				'maxitems' => 1,
-			)
-		),
-		'shortcut' => Array (
-			'exclude' => 1,
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.shortcut',
-			'config' => Array (
-				'type' => 'group',
-				'internal_type' => 'db',
-				'allowed' => 'pages',
-				'size' => '1',
-				'maxitems' => '1',
-				'minitems' => '0',
-				'show_thumbs' => '1'
-			)
-		),
-		'shortcut_target' => Array (
-			'exclude' => 1,
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.shortcut_target',
-			'config' => Array (
-				'type' => 'input',
-				'size' => '10',
-				'checkbox' => '',
-				'eval' => 'trim',
-				'max' => '40'
-			)
-		),
-		'single_pid' => Array (
-			'exclude' => 1,
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.single_pid',
-			'config' => Array (
-				'type' => 'group',
-				'internal_type' => 'db',
-				'allowed' => 'pages',
-				'size' => '1',
-				'maxitems' => '1',
-				'minitems' => '0',
-				'show_thumbs' => '1'
-			)
-		),
-		'description' => Array (
-			'exclude' => 1,
-			'label' => 'LLL:EXT:tt_news/locallang_tca.xml:tt_news_cat.description',
-			'config' => Array (
-				'type' => 'text',
-				'cols' => '40',
-				'rows' => '3'
-			)
-		),
-	),
-
-	'types' => Array (
-		'0' => Array('showitem' => '
-			title;;2;;1-1-1,parent_category;;;;1-1-1,
-			--div--;LLL:EXT:tt_news/locallang_tca.xml:tt_news.tabs.special, image;;;;1-1-1,shortcut;;1;;1-1-1,single_pid;;;;1-1-1,description;;;;1-1-1,
-			--div--;LLL:EXT:tt_news/locallang_tca.xml:tt_news.tabs.access, hidden,starttime,endtime,fe_group,
-			--div--;LLL:EXT:tt_news/locallang_tca.xml:tt_news.tabs.extended,
-		'),
-
-	),
-	'palettes' => Array (
-		'1' => Array('showitem' => 'shortcut_target'),
-		'2' => Array('showitem' => 'title_lang_ol'),
-//		'10' => Array('showitem' => 'fe_group'),
-	)
-);
-
-
-?>
