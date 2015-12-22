@@ -7,7 +7,6 @@ CREATE TABLE tt_news (
   tstamp int(11) unsigned DEFAULT '0' NOT NULL,
   crdate int(11) unsigned DEFAULT '0' NOT NULL,
   cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
-  editlock tinyint(4) unsigned DEFAULT '0' NOT NULL,
   deleted tinyint(3) unsigned DEFAULT '0' NOT NULL,
   hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
   starttime int(11) unsigned DEFAULT '0' NOT NULL,
@@ -16,15 +15,17 @@ CREATE TABLE tt_news (
   title text,
   datetime int(11) unsigned DEFAULT '0' NOT NULL,
   image text,
+
+  # @todo write migration script and then remove me
   imagecaption text,
   imagealttext text,
   imagetitletext text,
+
   related int(11) DEFAULT '0' NOT NULL,
   short text,
   bodytext mediumtext,
   author varchar(255) DEFAULT '' NOT NULL,
   author_email varchar(255) DEFAULT '' NOT NULL,
-  category int(11) DEFAULT '0' NOT NULL,
 
   news_files text,
   links text,
@@ -41,7 +42,6 @@ CREATE TABLE tt_news (
 
   PRIMARY KEY (uid),
   KEY parent (pid),
-  KEY t3ver_oid (t3ver_oid,t3ver_wsid),
   KEY datetime (datetime)
 
 );

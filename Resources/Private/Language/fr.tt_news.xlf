@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="" product-name="local lang module">
+		<header/>
+		<body>
+			<trans-unit id="tt_news">
+				<target>Nouvelles</target>
+			</trans-unit>
+			<trans-unit id="tabs.special">
+				<target>Special</target>
+			</trans-unit>
+			<trans-unit id="tabs.media">
+				<target>Media</target>
+			</trans-unit>
+			<trans-unit id="tabs.relations">
+				<target>Relations</target>
+			</trans-unit>
+			<trans-unit id="tabs.access">
+				<target>Accès</target>
+			</trans-unit>
+			<trans-unit id="uid">
+				<target>Uid</target>
+			</trans-unit>
+			<trans-unit id="tstamp">
+				<target>Dernier changement</target>
+			</trans-unit>
+			<trans-unit id="pid">
+				<target>Page</target>
+			</trans-unit>
+			<trans-unit id="type.I.0">
+				<target>News</target>
+			</trans-unit>
+			<trans-unit id="type.I.1">
+				<target>Lien page interne</target>
+			</trans-unit>
+			<trans-unit id="type.I.2">
+				<target>Lien URL externe</target>
+			</trans-unit>
+			<trans-unit id="datetime">
+				<target>Date / Heure</target>
+			</trans-unit>
+			<trans-unit id="archivedate">
+				<target>Date archivage</target>
+			</trans-unit>
+			<trans-unit id="related">
+				<target>Nouvelle liée</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

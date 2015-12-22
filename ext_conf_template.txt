@@ -1,0 +1,2 @@
+# cat=basic/11; type=boolean; label=Activate Categories
+activateCategories = 0
