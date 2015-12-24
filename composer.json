@@ -2,5 +2,5 @@
 	"name": "ecodev/tt-news",
 	"type": "typo3-cms-extension",
 	"description": "Data structure for News",
-	"license": ["GPL-2.0+"],
+	"license": ["GPL-2.0+"]
 }
