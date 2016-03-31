@@ -109,17 +109,6 @@ return [
 				'type' => 'input',
 				'size' => '40',
 				'max' => '256',
-				'wizards' => [
-					'link' => [
-						'type' => 'popup',
-						'title' => 'Link',
-						'icon' => 'link_popup.gif',
-						'module' => [
-							'name' => 'wizard_element_browser',
-						],
-						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
-					]
-				]
 			]
 		],
 		'bodytext' => [
