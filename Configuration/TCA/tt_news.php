@@ -110,12 +110,13 @@ return [
 				'size' => '40',
 				'max' => '256',
 				'wizards' => [
-					'_PADDING' => 2,
 					'link' => [
 						'type' => 'popup',
 						'title' => 'Link',
 						'icon' => 'link_popup.gif',
-						'script' => 'browse_links.php?mode=wizard',
+						'module' => [
+							'name' => 'wizard_element_browser',
+						],
 						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
 					]
 				]
@@ -129,17 +130,6 @@ return [
 				'cols' => '48',
 				'rows' => '5',
 				'softref' => 'typolink_tag,images,email[subst],url',
-				'wizards' => [
-					'_PADDING' => 4,
-					'RTE' => [
-						'notNewRecords' => 1,
-						'RTEonly' => 1,
-						'type' => 'script',
-						'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
-						'icon' => 'wizard_rte2.gif',
-						'script' => 'wizard_rte.php',
-					],
-				]
 			]
 		],
 		'short' => [
@@ -286,7 +276,7 @@ return [
 		'news_files' => [
 			'exclude' => 1,
 			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:cms/locallang_ttc.php:media',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:media',
 			'config' => [
 				'type' => 'group',
 				'internal_type' => 'file',

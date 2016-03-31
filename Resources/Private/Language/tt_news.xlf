@@ -45,6 +45,9 @@
 			<trans-unit id="related">
 				<source>Related news</source>
 			</trans-unit>
+			<trans-unit id="media">
+				<source>Media</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
