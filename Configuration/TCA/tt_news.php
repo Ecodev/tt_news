@@ -1,13 +1,12 @@
 <?php
-return [
+$tca = [
 	'ctrl' => [
 		'title' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tt_news',
 		'label' => 'title',
 		'default_sortby' => 'ORDER BY datetime DESC',
 		'prependAtCopy' => 'LLL:EXT:lang/locallang_general.php:LGL.prependAtCopy',
 		'shadowColumnsForNewPlaceholders' => 'sys_language_uid,l18n_parent,starttime, endtime, fe_group',
-
-		'dividers2tabs' => TRUE,
+		'dividers2tabs' => true,
 		'useColumnsForDefaultValues' => 'type',
 		'transOrigPointerField' => 'l18n_parent',
 		'transOrigDiffSourceField' => 'l18n_diffsource',
@@ -28,7 +27,6 @@ return [
 			'1' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('tt_news').'Resources/Public/Images/tt_news_article.gif',
 			'2' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('tt_news').'Resources/Public/Images/tt_news_exturl.gif',
 		],
-//		'mainpalette' => '10',
 		'thumbnail' => 'image',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('tt_news').'Resources/Public/Images/ext_icon.gif',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('tt_news').'tca.php'
@@ -370,3 +368,26 @@ return [
 
 	]
 ];
+
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('vidi')) {
+    $tca['grid'] = [
+        'facets' => [
+            'uid',
+        ],
+        'columns' => [
+            '__checkbox' => [
+                'renderer' => new \Fab\Vidi\Grid\CheckBoxRenderer(),
+            ],
+            'title' => [
+                'visible' => true,
+            ],
+            'short' => [
+                'visible' => true,
+            ],
+            '__buttons' => [
+                'renderer' => new \Fab\Vidi\Grid\ButtonGroupRenderer(),
+            ],
+        ]
+    ];
+}
+return $tca;
