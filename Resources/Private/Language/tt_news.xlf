@@ -1,53 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="" product-name="local lang module">
-		<header/>
-		<body>
-			<trans-unit id="tt_news">
-				<source>News</source>
-			</trans-unit>
-			<trans-unit id="tabs.special">
-				<source>Special</source>
-			</trans-unit>
-			<trans-unit id="tabs.media">
-				<source>Media</source>
-			</trans-unit>
-			<trans-unit id="tabs.relations">
-				<source>Relations</source>
-			</trans-unit>
-			<trans-unit id="tabs.access">
-				<source>Access</source>
-			</trans-unit>
-			<trans-unit id="uid">
-				<source>Uid</source>
-			</trans-unit>
-			<trans-unit id="tstamp">
-				<source>Last change</source>
-			</trans-unit>
-			<trans-unit id="pid">
-				<source>Page</source>
-			</trans-unit>
-			<trans-unit id="type.I.0">
-				<source>News</source>
-			</trans-unit>
-			<trans-unit id="type.I.1">
-				<source>Link internal Page</source>
-			</trans-unit>
-			<trans-unit id="type.I.2">
-				<source>Link external URL</source>
-			</trans-unit>
-			<trans-unit id="datetime">
-				<source>Date/Time</source>
-			</trans-unit>
-			<trans-unit id="archivedate">
-				<source>Archive date</source>
-			</trans-unit>
-			<trans-unit id="related">
-				<source>Related news</source>
-			</trans-unit>
-			<trans-unit id="media">
-				<source>Media</source>
-			</trans-unit>
-		</body>
-	</file>
+    <file source-language="en" datatype="plaintext" original="messages" date="" product-name="local lang module">
+        <header/>
+        <body>
+            <trans-unit id="tt_news">
+                <source>News</source>
+            </trans-unit>
+            <trans-unit id="tabs.special">
+                <source>Special</source>
+            </trans-unit>
+            <trans-unit id="tabs.media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="tabs.relations">
+                <source>Relations</source>
+            </trans-unit>
+            <trans-unit id="tabs.access">
+                <source>Access</source>
+            </trans-unit>
+            <trans-unit id="uid">
+                <source>Uid</source>
+            </trans-unit>
+            <trans-unit id="tstamp">
+                <source>Last change</source>
+            </trans-unit>
+            <trans-unit id="pid">
+                <source>Page</source>
+            </trans-unit>
+            <trans-unit id="type.I.0">
+                <source>News</source>
+            </trans-unit>
+            <trans-unit id="type.I.1">
+                <source>Link internal Page</source>
+            </trans-unit>
+            <trans-unit id="type.I.2">
+                <source>Link external URL</source>
+            </trans-unit>
+            <trans-unit id="datetime">
+                <source>Date/Time</source>
+            </trans-unit>
+            <trans-unit id="archivedate">
+                <source>Archive date</source>
+            </trans-unit>
+            <trans-unit id="related">
+                <source>Related news</source>
+            </trans-unit>
+            <trans-unit id="media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="start">
+                <source>Start</source>
+            </trans-unit>
+            <trans-unit id="stop">
+                <source>Stop</source>
+            </trans-unit>
+            <trans-unit id="disable">
+                <source>Disable</source>
+            </trans-unit>
+            <trans-unit id="frontend-group">
+                <source>Frontend Group</source>
+            </trans-unit>
+            <trans-unit id="title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="externalLink">
+                <source>External Link</source>
+            </trans-unit>
+            <trans-unit id="text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="short">
+                <source>Summary</source>
+            </trans-unit>
+            <trans-unit id="type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="image">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="author">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="authorEmail">
+                <source>Author Email</source>
+            </trans-unit>
+            <trans-unit id="keywords">
+                <source>Keywords</source>
+            </trans-unit>
+            <trans-unit id="links">
+                <source>Links</source>
+            </trans-unit>
+            <trans-unit id="shortcutPage">
+                <source>Shortcut Page</source>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>Language</source>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>

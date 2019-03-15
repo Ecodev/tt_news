@@ -4,7 +4,7 @@ $tca = [
 		'title' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tt_news',
 		'label' => 'title',
 		'default_sortby' => 'ORDER BY datetime DESC',
-		'prependAtCopy' => 'LLL:EXT:lang/locallang_general.php:LGL.prependAtCopy',
+		'prependAtCopy' => '-prependAtCopy',
 		'shadowColumnsForNewPlaceholders' => 'sys_language_uid,l18n_parent,starttime, endtime, fe_group',
 		'dividers2tabs' => true,
 		'useColumnsForDefaultValues' => 'type',
@@ -36,9 +36,7 @@ $tca = [
 	],
 	'columns' => [
 		'starttime' => [
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.starttime',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:start',
 			'config' => [
 				'type' => 'input',
 				'size' => '10',
@@ -49,9 +47,7 @@ $tca = [
 			]
 		],
 		'endtime' => [
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.endtime',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:stop',
 			'config' => [
 				'type' => 'input',
 				'size' => '8',
@@ -67,32 +63,29 @@ $tca = [
 		],
 		'hidden' => [
 			'l10n_mode' => '',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.hidden',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:disable',
 			'config' => [
 				'type' => 'check',
 				'default' => '1'
 			]
 		],
 		'fe_group' => [
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.fe_group',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:frontendGroup',
 			'config' => [
 				'type' => 'select',
 				'size' => 5,
 				'maxitems' => 20,
 				'items' => [
-					['LLL:EXT:lang/locallang_general.php:LGL.hide_at_login', -1],
-					['LLL:EXT:lang/locallang_general.php:LGL.any_login', -2],
-					['LLL:EXT:lang/locallang_general.php:LGL.usergroups', '--div--']
+					['-hide_at_login', -1],
+					['-any_login', -2],
+					['-usergroups', '--div--']
 				],
 				'exclusiveKeys' => '-1,-2',
 				'foreign_table' => 'fe_groups'
 			]
 		],
  		'title' => [
- 			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.title',
+ 			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:title',
 			'l10n_mode' => 'prefixLangTitle',
  			'config' => [
  				'type' => 'input',
@@ -101,8 +94,7 @@ $tca = [
 		    ]
 	    ],
 		'ext_url' => [
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.external',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:externalLink',
 			'config' => [
 				'type' => 'input',
 				'size' => '40',
@@ -110,7 +102,7 @@ $tca = [
 			]
 		],
 		'bodytext' => [
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.text',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:text',
 			'l10n_mode' => 'prefixLangTitle',
 			'config' => [
 				'type' => 'text',
@@ -120,8 +112,7 @@ $tca = [
 			]
 		],
 		'short' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.subheader',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:short',
 			'l10n_mode' => 'prefixLangTitle',
 			'config' => [
 				'type' => 'text',
@@ -130,8 +121,7 @@ $tca = [
 			]
 		],
 		'type' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.type',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:type',
 			'config' => [
 				'type' => 'select',
 				'items' => [
@@ -143,8 +133,6 @@ $tca = [
 			]
 		],
 		'datetime' => [
-			'l10n_mode' => 'mergeIfNotBlank',
-			'exclude' => 1,
 			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:datetime',
 			'config' => [
 				'type' => 'input',
@@ -155,8 +143,6 @@ $tca = [
 			]
 		],
 		'archivedate' => [
-			'l10n_mode' => 'mergeIfNotBlank',
-			'exclude' => 1,
 			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:archivedate',
 			'config' => [
 				'type' => 'input',
@@ -167,9 +153,8 @@ $tca = [
 			]
 		],
 		'image' => [
-			'exclude' => 1,
 			'l10n_mode' => 'exclude',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.images',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:image',
 			'config' => [
 				'type' => 'group',
 				'internal_type' => 'file',
@@ -184,9 +169,7 @@ $tca = [
 			]
 		],
 		'author' => [
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.author',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:author',
 			'config' => [
 				'type' => 'input',
 				'size' => '20',
@@ -195,9 +178,7 @@ $tca = [
 			]
 		],
 		'author_email' => [
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.email',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:authorEmail',
 			'config' => [
 				'type' => 'input',
 				'size' => '20',
@@ -206,7 +187,6 @@ $tca = [
 			]
 		],
 		'related' => [
-			'exclude' => 1,
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:related',
 			'config' => [
@@ -227,9 +207,7 @@ $tca = [
 			]
 		],
 		'keywords' => [
-			'l10n_mode' => 'mergeIfNotBlank',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.keywords',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:keywords',
 			'config' => [
 				'type' => 'text',
 				'cols' => '40',
@@ -237,9 +215,7 @@ $tca = [
 			]
 		],
 		'links' => [
-			'l10n_mode' => 'mergeIfNotBlank',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.links',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:links',
 			'config' => [
 				'type' => 'text',
 				'cols' => '40',
@@ -247,9 +223,8 @@ $tca = [
 			]
 		],
 		'page' => [
-			'exclude' => 1,
 			'l10n_mode' => 'exclude',
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.shortcut_page',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:shortcutPage',
 			'config' => [
 				'type' => 'group',
 				'internal_type' => 'db',
@@ -261,8 +236,6 @@ $tca = [
 			]
 		],
 		'news_files' => [
-			'exclude' => 1,
-			'l10n_mode' => 'mergeIfNotBlank',
 			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:media',
 			'config' => [
 				'type' => 'group',
@@ -279,22 +252,20 @@ $tca = [
 			]
 		],
 		'sys_language_uid' => [
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.language',
+			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:language',
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => [
-					['LLL:EXT:lang/locallang_general.php:LGL.allLanguages',-1],
-					['LLL:EXT:lang/locallang_general.php:LGL.default_value',0]
+					['-allLanguages',-1],
+					['-default_value',0]
 				]
 			]
 		],
 		'l18n_parent' => [
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
-			'exclude' => 1,
-			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
+			'label' => '',
 			'config' => [
 				'type' => 'select',
 				'items' => [
@@ -376,7 +347,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('vidi')) {
         ],
         'columns' => [
             '__checkbox' => [
-                'renderer' => new \Fab\Vidi\Grid\CheckBoxRenderer(),
+                'renderer' => \Fab\Vidi\Grid\CheckBoxRenderer::class,
             ],
             'title' => [
                 'visible' => true,
@@ -385,7 +356,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('vidi')) {
                 'visible' => true,
             ],
             '__buttons' => [
-                'renderer' => new \Fab\Vidi\Grid\ButtonGroupRenderer(),
+                'renderer' => \Fab\Vidi\Grid\ButtonGroupRenderer::class,
             ],
         ]
     ];

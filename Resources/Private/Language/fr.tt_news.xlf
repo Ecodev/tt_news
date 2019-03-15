@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="" product-name="local lang module">
+	<file target-language="en" datatype="plaintext" original="messages" date="" product-name="local lang module">
 		<header/>
 		<body>
 			<trans-unit id="tt_news">
@@ -44,6 +44,54 @@
 			</trans-unit>
 			<trans-unit id="related">
 				<target>Nouvelle liée</target>
+			</trans-unit>
+			<trans-unit id="start">
+				<target>Début</target>
+			</trans-unit>
+			<trans-unit id="stop">
+				<target>Fin</target>
+			</trans-unit>
+			<trans-unit id="disable">
+				<target>Désactivé</target>
+			</trans-unit>
+			<trans-unit id="frontend-group">
+				<target>Groupe Frontend</target>
+			</trans-unit>
+			<trans-unit id="title">
+				<target>Titre</target>
+			</trans-unit>
+			<trans-unit id="externalLink">
+				<target>Lien externe</target>
+			</trans-unit>
+			<trans-unit id="text">
+				<target>Texte</target>
+			</trans-unit>
+			<trans-unit id="short">
+				<target>Entête</target>
+			</trans-unit>
+			<trans-unit id="type">
+				<target>Type</target>
+			</trans-unit>
+			<trans-unit id="image">
+				<target>Image</target>
+			</trans-unit>
+			<trans-unit id="author">
+				<target>Auteur</target>
+			</trans-unit>
+			<trans-unit id="authorEmail">
+				<target>Email de l'auteur</target>
+			</trans-unit>
+			<trans-unit id="keywords">
+				<target>Mot clés</target>
+			</trans-unit>
+			<trans-unit id="links">
+				<target>Liens</target>
+			</trans-unit>
+			<trans-unit id="shortcutPage">
+				<target>Page Raccourci</target>
+			</trans-unit>
+			<trans-unit id="language">
+				<target>Langue</target>
 			</trans-unit>
 		</body>
 	</file>
