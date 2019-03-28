@@ -139,15 +139,7 @@ $tca = [
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:image',
 			'config' => [
-				'type' => 'group',
-				'internal_type' => 'file',
-				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
-				'max_size' => '10000',
-				'uploadfolder' => 'uploads/pics',
-				'size' => 3,
-				'autoSizeMax' => 15,
-				'maxitems' => '99',
-				'minitems' => '0'
+				'type' => 'text',
 			]
 		],
 		'author' => [
@@ -211,16 +203,7 @@ $tca = [
 		'news_files' => [
 			'label' => 'LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:media',
 			'config' => [
-				'type' => 'group',
-				'internal_type' => 'file',
-				'allowed' => '',	// Must be empty for disallowed to work.
-				'disallowed' => 'php,php3',
-				'max_size' => '10000',
-				'uploadfolder' => 'uploads/media',
-				'size' => '3',
-				'autoSizeMax' => '10',
-				'maxitems' => '100',
-				'minitems' => '0'
+				'type' => 'text',
 			]
 		],
 		'sys_language_uid' => [
@@ -285,7 +268,6 @@ $tca = [
 			'hidden, type,title, short,bodytext,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.special, datetime ,archivedate,author,
 				keywords ,sys_language_uid,
-			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.media, image, links, news_files,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.relations, related,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.access, starttime, endtime,
 			'],
@@ -294,7 +276,6 @@ $tca = [
 			'hidden, type,title ,page,short,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.special, datetime ,archivedate, author,
 				keywords ,sys_language_uid,
-			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.media, image,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.categories,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.access, starttime, endtime,
 			'],
@@ -303,7 +284,6 @@ $tca = [
 			'hidden, type,title ,ext_url,short,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.special, datetime ,archivedate, author,
 				keywords ,sys_language_uid,
-			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.media, image,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.categories,
 			--div--;LLL:EXT:tt_news/Resources/Private/Language/tt_news.xlf:tabs.access, starttime, endtime,
 			']
