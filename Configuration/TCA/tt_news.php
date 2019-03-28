@@ -21,16 +21,10 @@ $tca = [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
-		'typeicon_column' => 'type',
-		'typeicons' => [
-			'1' => 'EXT:news/Resources/Public/Images/tt_news_article.gif',
-			'2' => 'EXT:news/Resources/Public/Images/tt_news_exturl.gif',
-		],
-		'thumbnail' => 'image',
-		'iconfile' => 'EXT:news/Resources/Public/Images/ext_icon.gif',
+		'iconfile' => 'EXT:tt_news/Resources/Public/Images/ext_icon.gif',
 	],
 	'interface' => [
-		'showRecordFieldList' => 'title,hidden,datetime,starttime,archivedate,author,author_email,short,image,links,related,news_files'
+		'showRecordFieldList' => 'title,hidden,datetime,starttime,archivedate,author,author_email,short,related'
 	],
 	'columns' => [
 		'starttime' => [
